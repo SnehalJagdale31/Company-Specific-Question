@@ -1,0 +1,40 @@
+//Problem Statement: Swap Adjacent Characters and Replace Spaces
+//Problem Description
+//You are given a string plaintext consisting of uppercase and lowercase English letters and spaces. Your task is to swap adjacent characters in the string and replace all spaces with an asterisk (*).
+
+//If the length of the string is odd, the last character remains unchanged.
+//Swaps occur only between adjacent characters.
+//Function Signature
+//public static String swap(String plaintext)
+//input   Hello World
+//output  eHll*oWorlD
+
+...............................................................
+
+public class SwapAndReplace {
+    public static String swap(String plaintext) {
+        char[] charArray = plaintext.toCharArray();
+
+        // Replace spaces with '*'
+        for (int i = 0; i < charArray.length; i++) {
+            if (charArray[i] == ' ') {
+                charArray[i] = '*';
+            }
+        }
+
+        // Swap adjacent characters
+        for (int i = 0; i < charArray.length - 1; i += 2) {
+            char temp = charArray[i];
+            charArray[i] = charArray[i + 1];
+            charArray[i + 1] = temp;
+        }
+
+        return new String(charArray);
+    }
+
+    public static void main(String[] args) {
+        String input = "Hello World This Is Java";
+        String result = swap(input);
+        System.out.println("Modified String: " + result);
+    }
+}
