@@ -1,0 +1,73 @@
+//Note: The main class name must be "Solution".
+//
+//A cloud computing company can accommodate various requirements for resources. The company system runs two servers. For load balancing purposes the load of the resources gets transferred to the servers one after the other. Initially, the first request goes to server 1, the next request goes to server 2, and so on. The requests served by the servers are of two typh i.e., 
+one for memory allocation (denoted by a positive number) and the other for memory deallocation (denoted by a negative number).
+//Write an algorithm to find the total number of units of memory allocated/deallocated by server 1 after processing all the requests.
+//Input
+
+//The first line of the input consists of an integer req_size, representing the number of requests (N).
+//The second line consists of N space-separated integers - reg₁, reqz...... reqn representing the requests for the allocation/deallocation of the respective memory units.
+
+//Output
+//Print an integer representing the total number of units of memory allocated/deallocated by server 1 after processing all the requests.
+//Constraints
+//
+//0 s req_size ≤ 105
+//
+//-106 s reqis 106
+//
+//1 sis req_size
+//
+//Example
+//
+//Input:
+//
+//7
+//
+//2-38-6-7 18 1
+//
+//Output:
+//
+//4
+//[28/01/25, 2:32:06 PM] Snehal: Explanation:
+//
+//The requests served by server 1 are [2,8,-7,1].
+//
+//Therefore, the total number of memory units allocated/deallocated by server 1 is 4.
+
+import java.util.Scanner;
+
+public class Solution {
+
+    public static int memServer1(int[] req) {
+        int total = 0;
+
+        // Server 1 processes requests at even indices (0, 2, 4, ...)
+        for (int i = 0; i < req.length; i += 2) {
+            total += req[i];
+        }
+
+        return total;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        // Input for the number of requests
+        int req_size = in.nextInt();
+
+        // Input for requests
+        int req[] = new int[req_size];
+        for (int idx = 0; idx < req_size; idx++) {
+            req[idx] = in.nextInt();
+        }
+
+        // Calculate the total memory handled by server 1
+        int result = memServer1(req);
+
+        // Output the result
+        System.out.print(result);
+
+        in.close();
+    }
+}
