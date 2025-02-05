@@ -1,0 +1,91 @@
+//Note: The main class name must be "Solution".
+
+//The company Digital Secure Data Transfer Solutions provides data encryption and data sharing services. Their process uses a key K for encryption when transmitting characters. To encrypt a character the character is replaced by the following Kth character with the same case in the English alphabet set.
+//The English alphabet set is considered in a cyclic fashion for the last K characters.
+//Write an algorithm to find the character used to encrypt the given character.
+//Input
+//The first line of the input consists of a character character, representing the character to be transmitted. 
+//The second line consists of an integer key, representing the key (K).
+//Output
+//Print a character representing the encrypted
+
+//Example
+//
+//Example 1:
+//
+//Input:
+//
+//D
+//
+//3
+//
+//3
+//
+//4
+//
+//5
+//
+//6
+//
+//7
+//
+//8
+//
+//9
+//
+//10
+//
+//11
+//
+//12
+//
+//13
+//
+//14
+//
+//Output:
+//
+//15
+//
+//G
+//
+//16
+//
+//17
+import java.util.Scanner;
+
+public class Solution {
+
+    // Method to encrypt the character
+    public static char charEncrypt(char character, int key) {
+        if (Character.isUpperCase(character)) {
+            // If uppercase, calculate new character
+            return (char) ('A' + (character - 'A' + key) % 26);
+        } else if (Character.isLowerCase(character)) {
+            // If lowercase, calculate new character
+            return (char) ('a' + (character - 'a' + key) % 26);
+        } else {
+            // Return the character unchanged if it's not a letter
+            return character;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        // Input for character
+        char character = in.next().charAt(0);
+
+        // Input for key
+        int key = in.nextInt();
+
+        // Get the encrypted result
+        char result = charEncrypt(character, key);
+
+        // Print the result
+        System.out.print(result);
+
+        in.close();
+    }
+}
+
