@@ -1,0 +1,53 @@
+Problem Statement
+
+You are given a, d, and n which represents 1 term of an Arithmetic Progression, common difference, and number n respectively four task is to find and print the nth term of this Arithmetic Progression.
+
+Arithmetic Progression: Arithmetic Progression is a sequence of numbers in which each term after the first is obtained by adding a constant d to the proceding term. The constant d is called the common difference.
+
+nth term = a+(n-1)*d
+
+Input Format:
+
+The input consists of a single line:
+
+The line contains three integers a, d, and n
+
+The input will be read from the STDIN by the candidate
+
+Output Format:
+
+Print the nth term of this Arithmetic Progression.
+
+The output will be matched to the candidate's output printed on the STDOUT
+
+...................................................................................................................................
+
+
+import java.util.*;
+
+public class SolutionClass {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Read input values
+        int a = sc.nextInt();  // First term
+        int d = sc.nextInt();  // Common difference
+        int n = sc.nextInt();  // Nth term to find
+        
+        sc.close(); // Close the scanner to avoid resource leaks
+        
+        // Calculate the nth term using the formula: nth term = a + (n - 1) * d
+        int nthTerm = a + (n - 1) * d;
+        
+        // Print the result
+        System.out.println(nthTerm);
+    }
+}
+
+......................................................................................................................................
+
+Input:
+2 3 8
+
+Output:
+23
