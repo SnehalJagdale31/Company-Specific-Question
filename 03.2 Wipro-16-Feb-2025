@@ -1,0 +1,49 @@
+Problem Statement
+
+Alice is planning to organize a contest with 4 players in each team. There are two types of players named Experienced and Freshers. To make the contest unbiased Alice wants to have a team in such a way that each team must contain at least 1 Experienced and 1 Fresher. You are given N the number of Experienced and the number of Freshers. Your task is to determine the maximurn number of team formations possible.
+
+Note:
+
+No team member can join more than one team.
+
+Input Format:
+
+The input consists of a single line:
+
+The first line contains two space-separated integers N and M.
+
+The input will be read from the STDIN by the candidate.
+
+Output Format:
+
+Print the number that represents the maximum number of team formations possible.
+
+The output will be matched to the candidate's output printed on the STDOUT.
+...............................................................................................................................................
+import java.util.*;
+
+public class SolutionClass {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Read input values
+        int N = sc.nextInt();  // Number of Experienced players
+        int M = sc.nextInt();  // Number of Freshers
+        
+        sc.close(); // Close the scanner to avoid resource leaks
+        
+        // The maximum number of teams is limited by:
+        // 1. The total number of players divided by 4 (since each team needs 4 members)
+        // 2. The minimum of Experienced and Freshers (since each team needs at least 1 of each)
+        int maxTeams = Math.min((N + M) / 4, Math.min(N, M));
+        
+        // Print the result
+        System.out.println(maxTeams);
+    }
+}
+
+...............................................................................................................................................
+Input:
+5 5
+Output:
+2
